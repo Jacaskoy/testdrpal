@@ -1,0 +1,45 @@
+<?php
+
+
+function primer_modulo_block_info(){
+	# code...0
+	$blocks['primer_modulo_menu']=array(
+		'info'=>t('Bloque de formulario')
+	);
+	return $blocks;
+}
+//implementacion de hook
+function primer_modulo_menu(){
+
+
+// url para nuestros items
+	$items['foo/bar'] =array(
+
+// titulo de nuestro item o url personalizada
+'title'=>'pagina de ejemplo:hook_menu',
+
+//breve descripcion para nuestro menu o contenido basico
+'description'=>'implementacion de hook_menu().',
+
+//Argumentos que se le pasaran a la pagina basica cuando sea llamada desde este item
+'page arguments'=> array(t('this page is displayed by the simplest (and base) 
+menu example.Note that the tittle of the page is the same as the link title. you can also 
+<a href="!link"> visit a similar page with no menu link<a/>.Also note that there is a 
+hook_menu__alter()example that has changed the path of one of the menu  items.',
+array('!link' => url('examples/menu_example_path_only')))),
+
+//funcion que se llamara cuando el usuario ingrese a este item
+'page callback'=>'basic_instruccions',
+
+//permisos
+'acces arguments' => array('acces content'),
+);
+	return$items;
+}
+
+function basic_instruccions($content = NULL){
+
+	$base_content = t('pagina basica para este ejemplo de menu');
+	return'<div>' . $base_content . '</div><br/><div>'.$content .'</div>';
+}
+?>

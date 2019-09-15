@@ -1,0 +1,20 @@
+<?php
+
+function primer_bloque_block_info(){
+	# code...0
+	$blocks['primer_bloque']=array(
+		'info'=>t('Bloque de formulario')
+	);
+	return $blocks;
+}
+
+
+function primer_bloque_block_view($delta=''){
+	switch ($delta) {
+		case 'primer_bloque':
+		$blocks['subject']=t('Titulo de primer bloque');
+		$blocks['content']=t('<h1>Hola Javi este es tu primer Bloque </h1>');
+
+		return $blocks;
+	}
+}
